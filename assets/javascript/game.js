@@ -4,6 +4,7 @@ var letter = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q
 var win = 0;
 var loss = 0;
 var guess = 9;
+var randomLetter;
 
 // variables to hold references to the places in the html where text will be printed
 var directionsText = document.getElementById("directions-text");
@@ -12,16 +13,23 @@ var lossesText = document.getElementById("losses-text");
 var guessesLeft = document.getElementById("guesses-left");
 var userGuessesText = document.getElementById("userGuesses-text");
 
+function getLetter() {
+    randomLetter = letter[Math.floor(Math.random() * letter.length)];
+    console.log(randomLetter);
+}
+
 // user selects key
 document.onkeyup = function(event) {
 
-    var randomLetter = letter[Math.floor(Math.random() * letter.length)];
-    console.log(randomLetter);
+    if (guess === 9) {
+        getLetter();
+    }
 
     // enter code here to have the random letter only selected once per game
 
     // selected key recorded
     var userGuess = event.key;
+    console.log(guess);
     
     // check to see if guess is a letter
       
@@ -30,20 +38,20 @@ document.onkeyup = function(event) {
         // increase win count
         win++;
         // reset guesses count
-        guesses = 9;
+        guess = 9;
         // clear list of guesses
-        userGuessesText.textContent = "";
+        userGuessesText.innerHTML = '<iframe src="https://giphy.com/embed/l41YmQjOz9qg2Ecow" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/partylegends-party-legends-l41YmQjOz9qg2Ecow">via GIPHY</a></p>';
+    }
 
     // decrement guess count for each mismatch
-    } else {
+    else {
         guess--;
+        userGuessesText.append(", " + userGuess);
     }
     
     // log user guesses
     if (guess === 8) {
     userGuessesText.textContent = "Your guesses: " + userGuess;
-    } else {
-        userGuessesText.append(", " + userGuess);
     }
 
     // reset if guess count equals 0
