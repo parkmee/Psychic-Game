@@ -33,7 +33,7 @@ document.onkeyup = function(event) {
     // check to see if guess is a letter
     // for (var i = 0; i < letter.length; i++) {
 
-    
+    hfhhfjfj
 
     // user guess equals random letter, add one to win score
     if (userGuess.toLowerCase() === randomLetter) {
