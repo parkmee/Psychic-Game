@@ -25,14 +25,16 @@ document.onkeyup = function(event) {
         getLetter();
     }
 
-    // enter code here to have the random letter only selected once per game
-
     // selected key recorded
     var userGuess = event.key;
     console.log(guess);
+    console.log("Guess: " + userGuess);
     
     // check to see if guess is a letter
-      
+    // for (var i = 0; i < letter.length; i++) {
+
+    
+
     // user guess equals random letter, add one to win score
     if (userGuess.toLowerCase() === randomLetter) {
         // increase win count
