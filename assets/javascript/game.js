@@ -42,6 +42,7 @@ document.onkeyup = function (event) {
             // reset guesses count
             guess = 9;
             // clear list of guesses
+            userGuessesText.textContent = "";
             gifResponse.innerHTML = '<iframe src="https://giphy.com/embed/l41YmQjOz9qg2Ecow" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/partylegends-party-legends-l41YmQjOz9qg2Ecow">via GIPHY</a></p>';
         }
 
@@ -61,15 +62,13 @@ document.onkeyup = function (event) {
 
             // increase loss count
             loss++;
-
             // reset guess count to 9
             guess = 9;
-
             // clear list of guesses
             userGuessesText.textContent = "";
+            // game over
             gifResponse.innerHTML = '<iframe src="https://giphy.com/embed/SIPIe590rx6iA" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/foxadhd-love-game-over-video-games-SIPIe590rx6iA">via GIPHY</a></p>';
         }
-
 
         // print number of wins, losses, and guesses
         directionsText.textContent = "Guess what letter I'm thinking of...";
